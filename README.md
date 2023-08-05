@@ -12,7 +12,7 @@
     -   [Setting up Environment](#setting-up-environment-⛏)
     -   [Launching](#launching-🚀)
 -   [Mobilize for Battle | Attack](#mobilize-for-battle--attack-⚔💣)
--   [Learn More]
+-   [Learn More](#learn-more-🧐)
 
 ## Description
 
@@ -45,22 +45,22 @@ Having successfully installed project dependencies with no issues (all issues re
 
 To configure the environment, execute `export NODE_ENV=development` on your terminal. To confirm, execute `echo $NODE_ENV` to get the set value.
 
-[!Screenshot](./screenshots/configure-env.png)
+![Screenshot](./screenshots/configure-env.png)
 
 Open the _.env.development_ file and replace the 'API-KEY' placeholder with your [Infura API key](https://infura.io).
 An alternative is to navigate to [Quicknode](https://www.quicknode.com/), sign-in, navigate to endpoints and select _Sepolia network_. Copy the url and replace the 'https...infura.io...' in your _.env.development_ file with it.
 
 ### Launching 🚀
 
--   [x](Installation)
--   [x](Setting up the environment)
--   [](Launch ??)
+-   [x] Installation
+-   [x] Setting up the environment
+-   [ ] Launch ??
 
 With everything done so far, it's time to compile `npx hardhat compile` our smart contracts in the **contracts** directory. This generates an **artifacts** directory that contains directories for **ABIs** generated and **build info**.
 
 On successful compilation, we deploy on our test network **Sepolia** by executing the command `npx hardhat run scripts/deploy.[contract file you want to deploy].js --network sepolia`. In normal circumstances, the contract(s) should get deployed successfully and contract addresses should get printed out on the console.
 
-[!Screenshot](./screenshots/hardhat-deploy-telephone.png)
+![Screenshot](./screenshots/hardhat-deploy-telephone.png)
 
 Feel free to interact with the contract in `npx hardhat console --network sepolia` and attach the ContractFactory where necessary. For more information about interacting with a deployed smart contract peruse through [Ethers.js Docs](https://docs.ethers.org/v5/api/contract/contract/#Contract-attach).
 
@@ -72,7 +72,7 @@ Example:
 
 To attack the **Telephone** contract, you execute the following command in the terminal after compiling the SC `npx hardhat test ./test/Telephone.js`. The series of test would get executed and the attacker gets to claim ownership of the contract.
 
-[!Screenshot](./screenshots/hardhat-test-telephone.png)
+![Screenshot](./screenshots/hardhat-test-telephone.png)
 
 ### Learn More 🧐
 
@@ -81,13 +81,3 @@ The resources below have a deal of information that explain the above concepts d
 -   [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started#quick-start)
 -   [Ethers Docs](https://docs.ethers.org/v5/)
 -   [Solidity Documentation](https://docs.soliditylang.org/)
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
