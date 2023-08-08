@@ -1,7 +1,7 @@
 # Ethernaut CTF | Walkthrough 🚶‍♂️🚶‍♀️
 
 <div id="header" align="center">
-  <img src="./screenshots/big-level-4-telephone.svg" width="400" />
+  <img src="./screenshots/big-level-9-king.svg" width="400" />
 </div>
 
 ### Table of Contents
@@ -59,6 +59,10 @@ An alternative is to navigate to [Quicknode](https://www.quicknode.com/), sign-i
 With everything done so far, it's time to compile `npx hardhat compile` our smart contracts in the **contracts** directory. This generates an **artifacts** directory that contains directories for **ABIs** generated and **build info**.
 
 On successful compilation, we deploy on our test network **Sepolia** by executing the command `npx hardhat run scripts/deploy.[contract file you want to deploy].js --network sepolia`. In normal circumstances, the contract(s) should get deployed successfully and contract addresses should get printed out on the console.
+
+<div id="header" align="center">
+  <img src="./screenshots/big-level-4-telephone.svg" width="400" />
+</div>
 
 ![Screenshot](./screenshots/hardhat-deploy-telephone.png)
 
