@@ -17,6 +17,7 @@ module.exports = {
         ],
     },
     networks: {
+        hardhat: {},
         sepolia: {
             accounts: [PRIVATE_KEY],
             url: INFURA_SEPOLIA_HTTP,
