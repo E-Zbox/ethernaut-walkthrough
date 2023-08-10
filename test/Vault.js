@@ -56,7 +56,9 @@ describe(`${scriptEmojis[0]}Vault`, () => {
 
             await tx.wait();
 
-            console.log(`${scriptEmojis[0] * 3}\nUnlocked 🔓`);
+            console.log(
+                `\t${scriptEmojis[1]} ${scriptEmojis[1]} ${scriptEmojis[1]}\n\t${scriptEmojis[3]}Unlocked 🔓`
+            );
         });
     });
 });
