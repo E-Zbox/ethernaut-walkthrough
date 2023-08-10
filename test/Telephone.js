@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 
-const scriptEmojis = ["💻", "🚀", "⚔", "🏳", "📜"];
+const { scriptEmojis } = require("./");
 
 describe(`${scriptEmojis[0]} Telephone`, () => {
     let owner, attacker, telephoneContract, attackTelephoneContract;
