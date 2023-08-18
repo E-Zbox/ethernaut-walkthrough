@@ -2,17 +2,15 @@ const { expect } = require("chai");
 
 const { scriptEmojis } = require("./");
 
-describe(`${scriptEmojis[0]} Telephone`, () => {
+describe(`${scriptEmojis.system} Telephone`, () => {
     let owner, attacker, telephoneContract, attackTelephoneContract;
 
     before(async () => {
         [owner, attacker] = await ethers.getSigners();
     });
 
-    describe(`deployment ${scriptEmojis[1]}`, () => {
-        it(`should deploy Telephone Contract${
-            scriptEmojis[scriptEmojis.length - 1]
-        }`, async () => {
+    describe(`deployment ${scriptEmojis.launch}`, () => {
+        it(`should deploy Telephone Contract${scriptEmojis.contract}`, async () => {
             telephoneContract = await ethers.deployContract("Telephone");
 
             await telephoneContract.waitForDeployment();
@@ -23,9 +21,7 @@ describe(`${scriptEmojis[0]} Telephone`, () => {
             expect(telephoneContract.target).not.equal(undefined);
         });
 
-        it(`should deploy AttackTelephone Contract${
-            scriptEmojis[scriptEmojis.length - 1]
-        }`, async () => {
+        it(`should deploy AttackTelephone Contract${scriptEmojis.contract}`, async () => {
             attackTelephoneContract = await ethers.deployContract(
                 "AttackTelephone"
             );
@@ -38,9 +34,7 @@ describe(`${scriptEmojis[0]} Telephone`, () => {
             expect(attackTelephoneContract.target).not.equal(undefined);
         });
 
-        it(`should have owner - Telephone Contract${
-            scriptEmojis[scriptEmojis.length - 1]
-        }`, async () => {
+        it(`should have owner - Telephone Contract${scriptEmojis.contract}`, async () => {
             let owner = await telephoneContract.owner();
 
             expect(owner).not.equal("");
@@ -50,10 +44,8 @@ describe(`${scriptEmojis[0]} Telephone`, () => {
         });
     });
 
-    describe(`mobilize ${scriptEmojis[2]}`, () => {
-        it(`attack - Telephone Contract${
-            scriptEmojis[scriptEmojis.length - 1]
-        }`, async () => {
+    describe(`mobilize ${scriptEmojis.mobilize}`, () => {
+        it(`attack - Telephone Contract${scriptEmojis.contract}`, async () => {
             let tx = await attackTelephoneContract
                 .connect(attacker)
                 .attack(telephoneContract.target);
