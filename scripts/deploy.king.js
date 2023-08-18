@@ -11,7 +11,7 @@ const main = async () => {
         await attackKing.waitForDeployment();
 
         console.log(
-            `\n-----------------Address of King: ${king.target}\nAddress of AttackKing: ${attackKing.target}\n----------------`
+            `-----------------\nAddress of King: ${king.target}\nAddress of AttackKing: ${attackKing.target}\n----------------`
         );
     } catch (error) {
         console.error(error);
