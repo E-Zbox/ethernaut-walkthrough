@@ -12,7 +12,7 @@ const initialPrize = ethers.parseEther("0.5");
 
 const { expect } = chai;
 
-describe(`${scriptEmojis[0]}King`, () => {
+describe(`${scriptEmojis.system}King`, () => {
     before(async () => {
         [deployer, thirdKing] = await ethers.getSigners();
         king = await ethers.deployContract("King", { value: initialPrize });
@@ -20,9 +20,7 @@ describe(`${scriptEmojis[0]}King`, () => {
         await king.waitForDeployment();
     });
 
-    it(`${
-        scriptEmojis[scriptEmojis.length - 1]
-    } should deploy King contract`, async () => {
+    it(`${scriptEmojis.contract} should deploy King contract`, async () => {
         let _address = king.target;
 
         expect(_address).not.equal("");
@@ -32,9 +30,7 @@ describe(`${scriptEmojis[0]}King`, () => {
         expect(ethers.isAddress(_address)).true;
     });
 
-    it(`${
-        scriptEmojis[scriptEmojis.length - 1]
-    } should have a prize`, async () => {
+    it(`${scriptEmojis.contract} should have a prize`, async () => {
         const zeroBN = ethers.toBigInt(0);
         const _prize = await king.prize();
 
@@ -43,9 +39,7 @@ describe(`${scriptEmojis[0]}King`, () => {
         expect(_prize).equal(initialPrize);
     });
 
-    it(`${
-        scriptEmojis[scriptEmojis.length - 1]
-    } should have an owner`, async () => {
+    it(`${scriptEmojis.contract} should have an owner`, async () => {
         const _owner = await king.owner();
 
         expect(_owner).not.equal("");
@@ -56,7 +50,7 @@ describe(`${scriptEmojis[0]}King`, () => {
         expect(_owner).equal(deployer.address);
     });
 
-    it(`${scriptEmojis[4]} has King`, async () => {
+    it(`${scriptEmojis.crown} has King`, async () => {
         const _king = await king._king();
 
         expect(_king).not.equal("");
@@ -68,16 +62,14 @@ describe(`${scriptEmojis[0]}King`, () => {
     });
 });
 
-describe(`${scriptEmojis[0]} AttackKing`, () => {
+describe(`${scriptEmojis.system} AttackKing`, () => {
     before(async () => {
         attackKing = await ethers.deployContract("AttackKing");
 
         await attackKing.waitForDeployment();
     });
 
-    it(`${
-        scriptEmojis[scriptEmojis.length - 1]
-    } should deploy AttackKing contract`, async () => {
+    it(`${scriptEmojis.contract} should deploy AttackKing contract`, async () => {
         const _address = attackKing.target;
 
         expect(_address).not.equal("");
@@ -87,7 +79,7 @@ describe(`${scriptEmojis[0]} AttackKing`, () => {
         expect(ethers.isAddress(_address)).true;
     });
 
-    it(`${scriptEmojis[2]} mobilize`, async () => {
+    it(`${scriptEmojis.mobilize} mobilize`, async () => {
         const oneEther = ethers.parseEther("1");
         let tx = await attackKing.attack(king.target, { value: oneEther });
 
@@ -100,7 +92,7 @@ describe(`${scriptEmojis[0]} AttackKing`, () => {
         expect(_kingAddress).equal(attackKing.target);
     });
 
-    it(`${scriptEmojis[5]} more ETH is King ${scriptEmojis[4]}`, async () => {
+    it(`${scriptEmojis.coin} more ETH is King ${scriptEmojis.coin}`, async () => {
         const twoEther = ethers.parseEther("2");
 
         await expect(
