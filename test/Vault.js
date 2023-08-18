@@ -3,7 +3,7 @@ const { expect } = require("chai");
 const { scriptEmojis } = require("./");
 const { ethers } = require("hardhat");
 
-describe(`${scriptEmojis[0]}Vault`, () => {
+describe(`${scriptEmojis.system}Vault`, () => {
     let vault, password;
     before(async () => {
         password = "UNCRACKABLE_PASSKEY";
@@ -15,10 +15,8 @@ describe(`${scriptEmojis[0]}Vault`, () => {
         await vault.waitForDeployment();
     });
 
-    describe(`deployment 'Vault' SC ${scriptEmojis[1]}`, () => {
-        it(`should have an 'address' ${
-            scriptEmojis[scriptEmojis.length - 1]
-        }`, () => {
+    describe(`deployment 'Vault' SC ${scriptEmojis.launch}`, () => {
+        it(`should have an 'address' ${scriptEmojis.contract}`, () => {
             let _address = vault.target;
 
             expect(_address).not.equal("");
@@ -27,9 +25,7 @@ describe(`${scriptEmojis[0]}Vault`, () => {
             expect(_address).not.equal(undefined);
         });
 
-        it(`should have 'locked' state variable ${
-            scriptEmojis[scriptEmojis.length - 1]
-        }`, async () => {
+        it(`should have 'locked' state variable ${scriptEmojis.contract}`, async () => {
             let _locked = await vault.locked();
 
             expect(_locked).not.equal(null);
@@ -38,10 +34,8 @@ describe(`${scriptEmojis[0]}Vault`, () => {
         });
     });
 
-    describe(`mobilize ${scriptEmojis[2]}`, () => {
-        it(`attack - Vault SC ${
-            scriptEmojis[scriptEmojis.length - 1]
-        }`, async () => {
+    describe(`mobilize ${scriptEmojis.mobilize}`, () => {
+        it(`attack - Vault SC ${scriptEmojis.contract}`, async () => {
             const _passwordBytes = await ethers.provider.getStorage(
                 vault.target,
                 1
@@ -57,7 +51,7 @@ describe(`${scriptEmojis[0]}Vault`, () => {
             await tx.wait();
 
             console.log(
-                `\t${scriptEmojis[1]} ${scriptEmojis[1]} ${scriptEmojis[1]}\n\t${scriptEmojis[3]}Unlocked 🔓`
+                `\t${scriptEmojis.launch} ${scriptEmojis.launch} ${scriptEmojis.launch}\n\t${scriptEmojis.flag}Unlocked ${scriptEmojis.padlock}`
             );
         });
     });
